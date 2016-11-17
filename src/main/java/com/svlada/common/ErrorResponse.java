@@ -1,7 +1,6 @@
 package com.svlada.common;
 
 import java.util.Date;
-
 import org.springframework.http.HttpStatus;
 
 /**
@@ -27,7 +26,7 @@ public class ErrorResponse {
         this.message = message;
         this.errorCode = errorCode;
         this.status = status;
-        this.timestamp = new java.util.Date();
+        this.timestamp = new Date();
     }
 
     public static ErrorResponse of(final String message, final ErrorCode errorCode, HttpStatus status) {

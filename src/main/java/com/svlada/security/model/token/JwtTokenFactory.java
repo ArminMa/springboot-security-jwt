@@ -1,21 +1,18 @@
 package com.svlada.security.model.token;
 
+import com.svlada.security.config.JwtSettings;
+import com.svlada.security.model.Scopes;
+import com.svlada.security.model.UserContext;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import java.util.Arrays;
 import java.util.UUID;
 import java.util.stream.Collectors;
-
 import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import com.svlada.security.config.JwtSettings;
-import com.svlada.security.model.Scopes;
-import com.svlada.security.model.UserContext;
-
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 
 /**
  * Factory class that should be always used to create {@link JwtToken}.
@@ -34,11 +31,9 @@ public class JwtTokenFactory {
     }
 
     /**
-     * Factory method for issuing new JWT Tokens.
-     * 
-     * @param username
-     * @param roles
-     * @return
+     *
+     * @param userContext dfg
+     * @return AccessJwtToken
      */
     public AccessJwtToken createAccessJwtToken(UserContext userContext) {
         if (StringUtils.isBlank(userContext.getUsername())) 

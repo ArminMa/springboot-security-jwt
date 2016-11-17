@@ -1,8 +1,7 @@
 package com.svlada.security.exceptions;
 
-import org.springframework.security.core.AuthenticationException;
-
 import com.svlada.security.model.token.JwtToken;
+import org.springframework.security.core.AuthenticationException;
 
 /**
  * 

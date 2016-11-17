@@ -1,5 +1,6 @@
 package com.svlada.security.config;
 
+import com.svlada.security.model.token.JwtToken;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 

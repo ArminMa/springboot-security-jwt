@@ -1,15 +1,12 @@
 package com.svlada.security.model.token;
 
-import java.util.List;
-import java.util.Optional;
-
-import org.springframework.security.authentication.BadCredentialsException;
-
 import com.svlada.security.exceptions.JwtExpiredTokenException;
 import com.svlada.security.model.Scopes;
-
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
+import java.util.List;
+import java.util.Optional;
+import org.springframework.security.authentication.BadCredentialsException;
 
 /**
  * RefreshToken

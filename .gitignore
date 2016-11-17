@@ -5,3 +5,6 @@
 /*.classpath
 /.apt_generated/
 /.factorypath
+/.idea
+.idea/
+*.iml

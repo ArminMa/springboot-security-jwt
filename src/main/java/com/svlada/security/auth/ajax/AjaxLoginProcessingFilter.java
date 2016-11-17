@@ -1,12 +1,13 @@
 package com.svlada.security.auth.ajax;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.svlada.common.WebUtil;
+import com.svlada.security.exceptions.AuthMethodNotSupportedException;
 import java.io.IOException;
-
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,10 +20,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.svlada.common.WebUtil;
-import com.svlada.security.exceptions.AuthMethodNotSupportedException;
 
 /**
  * AjaxLoginProcessingFilter

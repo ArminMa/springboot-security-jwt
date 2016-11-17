@@ -1,7 +1,6 @@
 package com.svlada.security.model.token;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import io.jsonwebtoken.Claims;
 
 /**

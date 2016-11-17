@@ -1,11 +1,6 @@
 package com.svlada.security.model.token;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.security.authentication.BadCredentialsException;
-
 import com.svlada.security.exceptions.JwtExpiredTokenException;
-
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jws;
@@ -13,6 +8,9 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.SignatureException;
 import io.jsonwebtoken.UnsupportedJwtException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.security.authentication.BadCredentialsException;
 
 public class RawAccessJwtToken implements JwtToken {
     private static Logger logger = LoggerFactory.getLogger(RawAccessJwtToken.class);

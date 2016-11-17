@@ -1,8 +1,10 @@
 package com.svlada.security.auth.ajax;
 
+import com.svlada.entity.User;
+import com.svlada.security.model.UserContext;
+import com.svlada.user.service.DatabaseUserService;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -17,10 +19,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 
-import com.svlada.entity.User;
-import com.svlada.security.model.UserContext;
-import com.svlada.user.service.DatabaseUserService;
-
 /**
  * 
  * @author vladimir.stankovic
@@ -29,13 +27,18 @@ import com.svlada.user.service.DatabaseUserService;
  */
 @Component
 public class AjaxAuthenticationProvider implements AuthenticationProvider {
-    private final BCryptPasswordEncoder encoder;
-    private final DatabaseUserService userService;
 
     @Autowired
-    public AjaxAuthenticationProvider(final DatabaseUserService userService, final BCryptPasswordEncoder encoder) {
-        this.userService = userService;
-        this.encoder = encoder;
+    private final BCryptPasswordEncoder encoder ;
+
+    @Autowired
+    private DatabaseUserService userService;
+
+
+
+    public AjaxAuthenticationProvider(BCryptPasswordEncoder saltUtil) {
+
+        encoder = saltUtil;
     }
 
     @Override
@@ -66,4 +69,8 @@ public class AjaxAuthenticationProvider implements AuthenticationProvider {
     public boolean supports(Class<?> authentication) {
         return (UsernamePasswordAuthenticationToken.class.isAssignableFrom(authentication));
     }
+
+
+
+
 }

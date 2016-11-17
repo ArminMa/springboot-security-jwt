@@ -1,8 +1,14 @@
 package com.svlada.security.auth.jwt;
 
+import com.svlada.security.auth.JwtAuthenticationToken;
+import com.svlada.security.config.JwtSettings;
+import com.svlada.security.model.UserContext;
+import com.svlada.security.model.token.JwtToken;
+import com.svlada.security.model.token.RawAccessJwtToken;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jws;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.core.Authentication;
@@ -10,15 +16,6 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
-
-import com.svlada.security.auth.JwtAuthenticationToken;
-import com.svlada.security.config.JwtSettings;
-import com.svlada.security.model.UserContext;
-import com.svlada.security.model.token.JwtToken;
-import com.svlada.security.model.token.RawAccessJwtToken;
-
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jws;
 
 /**
  * An {@link AuthenticationProvider} implementation that will use provided

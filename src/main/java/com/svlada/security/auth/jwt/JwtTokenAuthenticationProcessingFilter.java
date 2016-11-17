@@ -1,12 +1,14 @@
 package com.svlada.security.auth.jwt;
 
+import com.svlada.security.auth.JwtAuthenticationToken;
+import com.svlada.security.auth.jwt.extractor.TokenExtractor;
+import com.svlada.security.config.WebSecurityConfig;
+import com.svlada.security.model.token.RawAccessJwtToken;
 import java.io.IOException;
-
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
@@ -15,11 +17,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.util.matcher.RequestMatcher;
-
-import com.svlada.security.auth.JwtAuthenticationToken;
-import com.svlada.security.auth.jwt.extractor.TokenExtractor;
-import com.svlada.security.config.WebSecurityConfig;
-import com.svlada.security.model.token.RawAccessJwtToken;
 
 /**
  * Performs validation of provided JWT Token.

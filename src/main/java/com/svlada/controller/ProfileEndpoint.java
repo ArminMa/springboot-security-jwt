@@ -1,12 +1,11 @@
-package com.svlada.profile.endpoint;
+package com.svlada.controller;
 
+import com.svlada.security.auth.JwtAuthenticationToken;
+import com.svlada.security.model.UserContext;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.svlada.security.auth.JwtAuthenticationToken;
-import com.svlada.security.model.UserContext;
 
 /**
  * End-point for retrieving logged-in user details.

@@ -1,14 +1,16 @@
 package com.svlada.security.auth.ajax;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.svlada.security.model.UserContext;
+import com.svlada.security.model.token.JwtToken;
+import com.svlada.security.model.token.JwtTokenFactory;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -16,11 +18,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.svlada.security.model.UserContext;
-import com.svlada.security.model.token.JwtToken;
-import com.svlada.security.model.token.JwtTokenFactory;
 
 /**
  * AjaxAwareAuthenticationSuccessHandler

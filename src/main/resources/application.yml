@@ -1,17 +1,95 @@
-server.port: 9966
-spring.profiles: default
+
+server:
+  port: 8082
+  servlet-path: "/"
+  display-name: "SebArmBack"
+  ssl.enabled: false
+
+
 demo.security.jwt:
-  tokenExpirationTime: 15 # Number of minutes
-  refreshTokenExpTime: 60 # Minutes
-  tokenIssuer: http://svlada.com
-  tokenSigningKey: xm8EV6Hy5RMFK4EEACIDAwQus
-  
-spring.datasource:
-  url: "jdbc:h2:mem:testdb"
-  driverClassName: org.h2.Driver
-  username: sa
-  password: ""
-  data: "classpath*:data.sql"
-spring.jpa:
-  database-platform: org.hibernate.dialect.H2Dialect
-spring.h2.console.enabled: true
+    # Number of minutes
+    tokenExpirationTime: 15
+     # Minutes
+    refreshTokenExpTime: 60
+    tokenIssuer: http://svlada.com
+    tokenSigningKey: xm8EV6Hy5RMFK4EEACIDAwQus
+spring:
+  profiles:
+    include: @activatedProperties@
+    active: @activatedProperties@
+
+---
+# ###########################################################
+# MySQL
+# ###########################################################
+spring:
+  profiles: mysqlProduction
+  http:
+      encoding.charset: UTF-8
+      multipart.max-request-size: 10MB
+  data.jpa.repositories.enabled: true
+  datasource:
+      platform: MYSQL
+      driverClassName: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/testdb?verifyServerCertificate=false&useSSL=false&requireSSL=false
+      username: root
+      password: root
+      data: classpath*:data.sql
+  jpa:
+      hibernate:
+          naming.strategy: org.hibernate.cfg.ImprovedNamingStrategy
+          #none, validate, update, create, create-drop
+          ddl-auto: create
+      database-platform: org.hibernate.dialect.MySQL5Dialect
+      show-sql: false
+      properties.hibernate:
+          dialect: org.hibernate.dialect.MySQL5Dialect
+          database: MYSQL
+          show-sql: true
+  h2:
+    console:
+      enabled: false
+      path: /console
+      settings:
+        web-allow-others: true
+  activemq:
+    pool:
+      max-connections: 10
+
+---
+# ###########################################################
+# H2 Database
+# ###########################################################
+spring:
+  profiles: h2Development
+  http:
+      encoding.charset: UTF-8
+      multipart.max-request-size: 10MB
+  data.jpa.repositories.enabled: true
+  datasource:
+      platform: H2
+      driverClassName: org.h2.Driver
+      url: jdbc:h2:mem:testdb
+      username: sa
+      password: sa
+      data: classpath*:data.sql
+  jpa:
+    hibernate:
+        naming.strategy: org.hibernate.cfg.ImprovedNamingStrategy
+        #none, validate, update, create, create-drop
+        ddl-auto: create
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: false
+    properties.hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        database: H2
+        show-sql: true
+  h2:
+    console:
+      enabled: true
+      path: /console
+      settings:
+        web-allow-others: true
+  activemq:
+    pool:
+      max-connections: 10

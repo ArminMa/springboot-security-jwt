@@ -1,7 +1,6 @@
 package com.svlada.common;
 
 import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.security.web.savedrequest.SavedRequest;
 
 /**

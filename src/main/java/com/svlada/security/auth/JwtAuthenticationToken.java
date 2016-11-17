@@ -1,12 +1,10 @@
 package com.svlada.security.auth;
 
-import java.util.Collection;
-
-import org.springframework.security.authentication.AbstractAuthenticationToken;
-import org.springframework.security.core.GrantedAuthority;
-
 import com.svlada.security.model.UserContext;
 import com.svlada.security.model.token.RawAccessJwtToken;
+import java.util.Collection;
+import org.springframework.security.authentication.AbstractAuthenticationToken;
+import org.springframework.security.core.GrantedAuthority;
 
 /**
  * An {@link org.springframework.security.core.Authentication} implementation
